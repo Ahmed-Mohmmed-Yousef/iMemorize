@@ -26,7 +26,7 @@ struct MemoryGame<CardContent: Equatable> {
                     cards[potentailMatchIndex].isMatched = true
                 }
                 self.cards[chosenIndex].isFaceUp = !self.cards[chosenIndex].isFaceUp
-             } else {
+            } else {
                 indexOfOneAndOnlyFaceUpCard = chosenIndex
             }
         }
@@ -39,12 +39,68 @@ struct MemoryGame<CardContent: Equatable> {
             cards.append(Card(id: index*2, content: content))
             cards.append(Card(id: index*2+1, content: content))
         }
+        cards.shuffle()
     }
+    
     struct Card: Identifiable {
         var id: Int
-        var isFaceUp: Bool = false
-        var isMatched: Bool = false
+        var isFaceUp: Bool = false {
+            didSet {
+                isFaceUp ? startUsingBounsTime() : stopUsingBounsTime()
+            }
+        }
+        var isMatched: Bool = false {
+            didSet {
+                stopUsingBounsTime()
+            }
+        }
         var content: CardContent
         
+        
+        
+        
+        //bouns time
+        
+        var bounsTimeLimit: TimeInterval = 6
+        
+        private var faceUpTime: TimeInterval {
+            if let lastFaceUpTime = self.lastFaceUpDate {
+                return pastFaceUpTime + Date().timeIntervalSince(lastFaceUpTime)
+            } else {
+                return pastFaceUpTime
+            }
+        }
+        
+        var lastFaceUpDate: Date?
+        
+        var pastFaceUpTime: TimeInterval = 0
+        
+        var bounsTimeReminig: TimeInterval {
+            max(0, bounsTimeLimit - faceUpTime)
+        }
+        
+        var bounsReminig: Double {
+            (bounsTimeLimit > 0 && bounsTimeReminig > 0) ? bounsTimeReminig/bounsTimeLimit : 0
+        }
+        
+        var hasErnedBonus: Bool {
+            isMatched && bounsTimeReminig > 0
+        }
+        
+        var isConsumingBounsTime: Bool {
+            isFaceUp && !isMatched && bounsTimeReminig > 0
+        }
+        
+        private mutating func startUsingBounsTime() {
+            if isConsumingBounsTime, lastFaceUpDate == nil {
+                lastFaceUpDate = Date()
+            }
+        }
+        
+        private mutating func stopUsingBounsTime() {
+            pastFaceUpTime = faceUpTime
+            self.lastFaceUpDate = nil
+        }
     }
+    
 }

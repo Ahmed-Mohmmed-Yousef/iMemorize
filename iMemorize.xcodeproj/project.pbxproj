@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		245B57D924FE03F200F720FF /* PolygonShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245B57D824FE03F200F720FF /* PolygonShapeView.swift */; };
 		2491BC6C24F519A80085B389 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2491BC6B24F519A80085B389 /* AppDelegate.swift */; };
 		2491BC6E24F519A80085B389 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2491BC6D24F519A80085B389 /* SceneDelegate.swift */; };
 		2491BC7024F519A80085B389 /* EmojeMemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2491BC6F24F519A80085B389 /* EmojeMemoryGameView.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		245B57D824FE03F200F720FF /* PolygonShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonShapeView.swift; sourceTree = "<group>"; };
 		2491BC6824F519A80085B389 /* iMemorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMemorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2491BC6B24F519A80085B389 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2491BC6D24F519A80085B389 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		245B57D724FE03B000F720FF /* Animtable */ = {
+			isa = PBXGroup;
+			children = (
+				245B57D824FE03F200F720FF /* PolygonShapeView.swift */,
+			);
+			path = Animtable;
+			sourceTree = "<group>";
+		};
 		2491BC5F24F519A80085B389 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 		2491BC6A24F519A80085B389 /* iMemorize */ = {
 			isa = PBXGroup;
 			children = (
+				245B57D724FE03B000F720FF /* Animtable */,
 				2491BC6B24F519A80085B389 /* AppDelegate.swift */,
 				2491BC6D24F519A80085B389 /* SceneDelegate.swift */,
 				2491BC8524F988B70085B389 /* Grid.swift */,
@@ -173,6 +184,7 @@
 				2491BCA124FAAFC80085B389 /* Pie.swift in Sources */,
 				2491BC7024F519A80085B389 /* EmojeMemoryGameView.swift in Sources */,
 				2491BC8224F6582A0085B389 /* EmojiMemoryGame.swift in Sources */,
+				245B57D924FE03F200F720FF /* PolygonShapeView.swift in Sources */,
 				2491BC8A24FA60D20085B389 /* Array+Identifiable.swift in Sources */,
 				2491BC8824F98D560085B389 /* GridLayout.swift in Sources */,
 				2491BCA324FBA30C0085B389 /* Cardify.swift in Sources */,

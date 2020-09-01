@@ -14,6 +14,15 @@ struct Pie: Shape {
     var endAngel: Angle
     var clockwise: Bool = true
     
+    var animatableData: AnimatablePair<Double, Double> {
+        get { AnimatablePair(startAngle.radians, endAngel.radians) }
+        
+        set {
+            startAngle = Angle.radians(newValue.first)
+            endAngel   = Angle.radians(newValue.second)
+        }
+    }
+    
     func path(in rect: CGRect) -> Path {
         let center = CGPoint(x: rect.midX, y: rect.midY)
         let raduis = min(rect.width, rect.height) / 2
